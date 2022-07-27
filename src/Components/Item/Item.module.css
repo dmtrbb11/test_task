@@ -1,0 +1,21 @@
+.item {
+  box-sizing: border-box;
+  background: #ffffff;
+  border: 1px solid #dedede;
+  /* width: 270px;
+  height: 380px; */
+  padding: 10px 20px 35px 20px;
+  text-align: center;
+}
+
+.item_img {
+  margin-bottom: 34px;
+}
+
+.item_txt {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 21px;
+  color: #000000;
+  margin-bottom: 15px;
+}
