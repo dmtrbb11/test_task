@@ -1,0 +1,33 @@
+.header {
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 60px;
+}
+
+.logo {
+  cursor: pointer;
+}
+.right_header {
+  display: flex;
+  align-items: center;
+}
+
+.basket_txt {
+  margin: 0 10px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  color: #35383a;
+}
+.basket_counter {
+  font-weight: 600;
+  color: #ffffff;
+  padding: 3px 8px;
+  font-size: 12px;
+  line-height: 15px;
+  background: #00a82d;
+  border-radius: 50%;
+  opacity: 0;
+}
