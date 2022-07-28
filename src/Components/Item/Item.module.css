@@ -2,10 +2,16 @@
   box-sizing: border-box;
   background: #ffffff;
   border: 1px solid #dedede;
-  /* width: 270px;
-  height: 380px; */
-  padding: 10px 20px 35px 20px;
+  padding: 10px 20px 20px 20px;
   text-align: center;
+}
+
+.item:hover {
+  padding: 10px 20px 10px 20px;
+}
+
+.item:hover .item_txt {
+  margin-top: -30px;
 }
 
 .item_img {
@@ -18,4 +24,32 @@
   line-height: 21px;
   color: #000000;
   margin-bottom: 15px;
+  transition: 0.7s;
+}
+
+.item_price {
+  display: block;
+  margin-bottom: 15px;
+}
+
+.addToCard_btn {
+  cursor: pointer;
+  font-family: 'Montserrat';
+  width: 186px;
+  height: 40px;
+  background-color: #296dc1;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+  border: none;
+  text-transform: uppercase;
+  color: #ffffff;
+  transition: 0.7s;
+}
+
+@media (max-width: 1210px) {
+  .item_img {
+    width: 130px;
+    height: 130px;
+  }
 }
