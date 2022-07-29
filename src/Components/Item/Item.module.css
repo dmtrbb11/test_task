@@ -2,20 +2,22 @@
   box-sizing: border-box;
   background: #ffffff;
   border: 1px solid #dedede;
-  padding: 10px 20px 20px 20px;
+  padding: 10px 20px 10px 20px;
   text-align: center;
 }
 
-.item:hover {
-  padding: 10px 20px 10px 20px;
+
+/* .item:hover .item_img {
+  margin-bottom: 4px;
 }
 
-.item:hover .item_txt {
-  margin-top: -30px;
-}
+.item:hover .item_price {
+  margin-bottom: 15px;
+} */
 
 .item_img {
   margin-bottom: 34px;
+  transition: all 1s;
 }
 
 .item_txt {
@@ -24,17 +26,17 @@
   line-height: 21px;
   color: #000000;
   margin-bottom: 15px;
-  transition: 0.7s;
 }
 
 .item_price {
   display: block;
-  margin-bottom: 15px;
+  margin-bottom: 25px;
+  transition: all 1s;
 }
 
 .addToCard_btn {
   cursor: pointer;
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   width: 186px;
   height: 40px;
   background-color: #296dc1;
@@ -44,7 +46,6 @@
   border: none;
   text-transform: uppercase;
   color: #ffffff;
-  transition: 0.7s;
 }
 
 @media (max-width: 1210px) {

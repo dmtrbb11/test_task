@@ -8,22 +8,48 @@ let Item = (props) => {
     setIsHovering(true);
   };
 
-  const handleMouseOut = () => {
-    setIsHovering(false);
+  // const handleMouseOut = () => {
+  //   setIsHovering(false);
+  // };
+
+  // const handleMouseOverTime = () => {
+  //   setTimeout(handleMouseOver, 1000);
+  // };
+
+  // const handleMouseOutTime = () => {
+  //   setTimeout(handleMouseOver, 1000);
+  // };
+
+  const imgStyle = {
+    marginBottom: isHovering ? 4 : null,
+  };
+
+  const priceStyle = {
+    marginBottom: isHovering ? 15 : null,
   };
 
   return (
     <div
       className={styles.item}
-      onMouseOver={handleMouseOver}
-      onMouseOut={handleMouseOut}
+      onMouseOver={() => handleMouseOver()}
+      onMouseOut={() => handleMouseOver()}
     >
-      <img className={styles.item_img} src="/img/item1.png" alt="" />
+      <img
+        style={imgStyle}
+        className={styles.item_img}
+        src="/img/item1.png"
+        alt=""
+      />
       <p className={styles.item_txt}>
         Увлажнитель воздуха STARWIND SHC1322, 3л, белый
       </p>
-      <span className={styles.item_price}>1650 ₽</span>
-      {isHovering && <button className={styles.addToCard_btn}>добавить в корзину</button>}
+      <span style={priceStyle} className={styles.item_price}>
+        {isHovering ? "true" : "false"}
+      </span>
+      {}
+      {isHovering ? (
+        <button className={styles.addToCard_btn}>добавить в корзину</button>
+      ) : null}
     </div>
   );
 };
