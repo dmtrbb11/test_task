@@ -1,25 +1,22 @@
+import React, { useEffect, useRef } from "react";
 import styles from "./Item.module.css";
 import { useState } from "react";
 
 let Item = (props) => {
   const [isHovering, setIsHovering] = useState(false);
+  const [isMargin, setIsMargin] = useState(false);
+  const isMarginRef = useRef(isMargin);
+  isMarginRef.current = isMargin;
 
   const handleMouseOver = () => {
     setIsHovering(true);
   };
 
-  // const handleMouseOut = () => {
-  //   setIsHovering(false);
-  // };
+  const handleMouseOut = () => {
+    setIsHovering(false);
+  };
 
-  // const handleMouseOverTime = () => {
-  //   setTimeout(handleMouseOver, 1000);
-  // };
-
-  // const handleMouseOutTime = () => {
-  //   setTimeout(handleMouseOver, 1000);
-  // };
-
+  // изменение стилей по наведению
   const imgStyle = {
     marginBottom: isHovering ? 4 : null,
   };
@@ -28,11 +25,24 @@ let Item = (props) => {
     marginBottom: isHovering ? 15 : null,
   };
 
+  // появление кнопки через 1сек, при помощи IsMargin
+  useEffect(() => {
+    if (isHovering === true) {
+      setTimeout(() => {
+        setIsMargin(true);
+      }, 1000);
+    } else {
+      setTimeout(() => {
+        setIsMargin(false);
+      }, 0);
+    }
+  }, [isHovering]);
+
   return (
     <div
       className={styles.item}
       onMouseOver={() => handleMouseOver()}
-      onMouseOut={() => handleMouseOver()}
+      onMouseOut={() => handleMouseOver()} // заменить на handleMouseOver и при отводке курсора все останется на месте(handleMouseOut)
     >
       <img
         style={imgStyle}
@@ -44,10 +54,9 @@ let Item = (props) => {
         Увлажнитель воздуха STARWIND SHC1322, 3л, белый
       </p>
       <span style={priceStyle} className={styles.item_price}>
-        {isHovering ? "true" : "false"}
+        1650 ₽
       </span>
-      {}
-      {isHovering ? (
+      {isMargin ? (
         <button className={styles.addToCard_btn}>добавить в корзину</button>
       ) : null}
     </div>
