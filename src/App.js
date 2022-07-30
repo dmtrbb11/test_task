@@ -3,6 +3,7 @@ import Header from "./Components/Header/Header";
 import Item from "./Components/Item/Item";
 
 function App() {
+  console.log(window.innerWidth);
   return (
     <div className="container">
       <Header />
@@ -17,7 +18,7 @@ function App() {
         <Item />
         <Item />
         <Item />
-        <Item />
+        
       </section>
     </div>
   );

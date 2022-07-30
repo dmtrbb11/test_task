@@ -18,11 +18,11 @@ let Item = (props) => {
 
   // изменение стилей по наведению
   const imgStyle = {
-    marginBottom: isHovering ? 4 : null,
+    marginBottom: isHovering && window.innerWidth > 690  ? 4 : null,
   };
 
   const priceStyle = {
-    marginBottom: isHovering ? 15 : null,
+    marginBottom: isHovering && window.innerWidth > 690 ? 15 : null,
   };
 
   // появление кнопки через 1сек, при помощи IsMargin
@@ -56,9 +56,10 @@ let Item = (props) => {
       <span style={priceStyle} className={styles.item_price}>
         1650 ₽
       </span>
-      {isMargin ? (
+      {isMargin && window.innerWidth > 690 ? (
         <button className={styles.addToCard_btn}>добавить в корзину</button>
       ) : null}
+      {window.innerWidth <= 690 ? <button className={styles.addToCard_btn}>добавить в корзину</button> : null}
     </div>
   );
 };
