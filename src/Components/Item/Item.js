@@ -5,6 +5,7 @@ import { useState } from "react";
 let Item = (props) => {
   const [isHovering, setIsHovering] = useState(false);
   const [isMargin, setIsMargin] = useState(false);
+  const [BtnClicked, setBtnClicked] = useState(false);
   const isMarginRef = useRef(isMargin);
   isMarginRef.current = isMargin;
 
@@ -18,7 +19,7 @@ let Item = (props) => {
 
   // изменение стилей по наведению
   const imgStyle = {
-    marginBottom: isHovering && window.innerWidth > 690  ? 4 : null,
+    marginBottom: isHovering && window.innerWidth > 690 ? 4 : null,
   };
 
   const priceStyle = {
@@ -38,8 +39,24 @@ let Item = (props) => {
     }
   }, [isHovering]);
 
+  const addToCard = () => {
+    setBtnClicked(true);
+    if (
+      props.cardArr.find((el) => {
+        return el.itemName === props.item.itemName;
+      })
+    ) {
+    } else {
+      props.setCardCount(props.cardCount + 1);
+      props.setCardArr((prev) => {
+        return [...prev, props.item];
+      });
+    }
+  };
+
   return (
     <div
+      style={window.innerWidth <= 690 ? { height: 590 } : null}
       className={styles.item}
       onMouseOver={() => handleMouseOver()}
       onMouseOut={() => handleMouseOver()} // заменить на handleMouseOver и при отводке курсора все останется на месте(handleMouseOut)
@@ -47,19 +64,42 @@ let Item = (props) => {
       <img
         style={imgStyle}
         className={styles.item_img}
-        src="/img/item1.png"
-        alt=""
+        src={props.imgURL}
+        alt="itemLogo"
       />
-      <p className={styles.item_txt}>
-        Увлажнитель воздуха STARWIND SHC1322, 3л, белый
-      </p>
+      <p className={styles.item_txt}>{props.itemName}</p>
       <span style={priceStyle} className={styles.item_price}>
-        1650 ₽
+        {props.itemPrice}
       </span>
+      {/* Button on width > 690 */}
       {isMargin && window.innerWidth > 690 ? (
-        <button className={styles.addToCard_btn}>добавить в корзину</button>
+        <button
+          onClick={addToCard}
+          style={
+            BtnClicked
+              ? { backgroundColor: "#00A82D" }
+              : { backgroundColor: "#296DC1" }
+          }
+          className={styles.addToCard_btn}
+        >
+          {BtnClicked ? "В корзине" : "добавить в корзину"}
+        </button>
       ) : null}
-      {window.innerWidth <= 690 ? <button className={styles.addToCard_btn}>добавить в корзину</button> : null}
+      {/* Button on width <= 690 */}
+      {window.innerWidth <= 690 ? (
+        <button
+          onClick={addToCard}
+          style={
+            BtnClicked
+              ? { backgroundColor: "#00A82D" }
+              : { backgroundColor: "#296DC1" }
+          }
+          className={styles.addToCard_btn}
+        >
+          {BtnClicked ? "В корзине" : "добавить в корзину"}
+        </button>
+      ) : null}
+      {/* Button on width <= 690 */}
     </div>
   );
 };
