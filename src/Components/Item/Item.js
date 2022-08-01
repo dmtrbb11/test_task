@@ -52,6 +52,7 @@ let Item = (props) => {
         return [...prev, props.item];
       });
     }
+    console.log(props.cardArr, props.cardCount);
   };
 
   return (

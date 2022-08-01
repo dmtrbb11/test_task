@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { Route, Routes } from "react-router-dom";
 import "./style.css";
 import Header from "./Components/Header/Header";
-import Item from "./Components/Item/Item";
+import MainPage from "./Pages/MainPage/MainPage";
+import CardPage from "./Pages/CardPage/CardPage";
 
 function App() {
   const [cardCount, setCardCount] = useState(0);
@@ -41,24 +43,32 @@ function App() {
   return (
     <div className="container">
       <Header cardCount={cardCount} cardArr={cardArr} />
-      <h1 className="items_h1">Каталог товаров</h1>
-      <section className="items_list">
-        {itemsArr.map((e, index) => {
-          return (
-            <Item
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <MainPage
+              itemsArr={itemsArr}
               cardCount={cardCount}
               setCardCount={setCardCount}
-              key={index}
               cardArr={cardArr}
               setCardArr={setCardArr}
-              imgURL={e.imgURL}
-              itemName={e.itemName}
-              itemPrice={e.itemPrice}
-              item={e}
             />
-          );
-        })}
-      </section>
+          }
+        ></Route>
+        <Route
+          path="/card"
+          element={
+            <CardPage
+              itemsArr={itemsArr}
+              cardCount={cardCount}
+              setCardCount={setCardCount}
+              cardArr={cardArr}
+              setCardArr={setCardArr}
+            />
+          }
+        ></Route>
+      </Routes>
     </div>
   );
 }

@@ -1,0 +1,5 @@
+.itemsCard_list {
+  display: flex;
+  padding: 0 5px;
+  flex-direction: column;
+}
