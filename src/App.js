@@ -41,7 +41,7 @@ function App() {
   ]);
   const [cardArr, setCardArr] = useState([]);
   return (
-    <div className="container">
+    <div>
       <Header cardCount={cardCount} cardArr={cardArr} />
       <Routes>
         <Route

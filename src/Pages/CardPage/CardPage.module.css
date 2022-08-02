@@ -1,5 +1,118 @@
+.container {
+  position: relative;
+  box-sizing: border-box;
+  padding: 0px;
+  /* max-width: 1200px; */
+  min-height: 100vh;
+  /* margin: 0 auto 57px auto; */
+}
 .itemsCard_list {
   display: flex;
   padding: 0 5px;
   flex-direction: column;
+}
+
+.total_price {
+  text-align: right;
+  margin-right: 47px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 39px;
+  color: #000000;
+  margin-bottom: 60px;
+}
+
+.form {
+  box-sizing: border-box;
+  padding-top: 70px;
+  background-color: #f2f5f9;
+  margin-bottom: 127px;
+  position: relative;
+}
+
+.form::after {
+  content: "";
+  position: absolute;
+  max-width: 1200px;
+  height: 1px;
+  background-color: #a8afbb;
+  bottom: -70px;
+  left: 0;
+  right: 0;
+  margin-left: 90px;
+  display: inline-block;
+}
+
+.form_wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.form_h1 {
+  display: block;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 34px;
+  text-align: center;
+  color: #000000;
+  margin-bottom: 30px;
+}
+
+.formInput_name {
+  box-sizing: border-box;
+  width: 430px;
+  padding: 20px 26px 20px 26px;
+  border: none;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 21px;
+  color: #535860;
+  margin-bottom: 30px;
+}
+.formInput_name:focus {
+  outline: none;
+}
+
+.formInput_phone{
+  box-sizing: border-box;
+  width: 430px;
+  padding: 20px 26px 20px 26px;
+  border: none;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 21px;
+  color: #535860;
+  margin-bottom: 30px;
+}
+
+.formInput_phone:focus {
+  outline: none;
+}
+
+.formInput_mail{
+  box-sizing: border-box;
+  width: 430px;
+  padding: 20px 26px 20px 26px;
+  border: none;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 21px;
+  color: #535860;
+  margin-bottom: 30px;
+}
+
+.formInput_mail:focus {
+  outline: none;
+}
+.form_btn {
+  margin-bottom: 76px;
 }

@@ -1,13 +1,11 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import styles from "./Item.module.css";
 import { useState } from "react";
 
 let Item = (props) => {
   const [isHovering, setIsHovering] = useState(false);
-  const [isMargin, setIsMargin] = useState(false);
   const [BtnClicked, setBtnClicked] = useState(false);
-  const isMarginRef = useRef(isMargin);
-  isMarginRef.current = isMargin;
+
 
   const handleMouseOver = () => {
     setIsHovering(true);
@@ -19,25 +17,40 @@ let Item = (props) => {
 
   // изменение стилей по наведению
   const imgStyle = {
-    marginBottom: isHovering && window.innerWidth > 690 ? 4 : null,
+    marginBottom:
+      (isHovering && window.innerWidth > 690) ||
+      (BtnClicked && window.innerWidth > 690)
+        ? 4
+        : null,
+    transition: BtnClicked ? "0s" : "1s",
   };
 
   const priceStyle = {
-    marginBottom: isHovering && window.innerWidth > 690 ? 15 : null,
+    marginBottom:
+      (isHovering && window.innerWidth > 690) ||
+      (BtnClicked && window.innerWidth > 690)
+        ? 15
+        : null,
+    transition: BtnClicked ? "0s" : "1s",
   };
 
-  // появление кнопки через 1сек, при помощи IsMargin
-  useEffect(() => {
-    if (isHovering === true) {
-      setTimeout(() => {
-        setIsMargin(true);
-      }, 1000);
-    } else {
-      setTimeout(() => {
-        setIsMargin(false);
-      }, 0);
+  const btnStyle = {
+    backgroundColor: BtnClicked ? "#00A82D" : "#296DC1",
+    opacity: isHovering || BtnClicked ? 1 : 0,
+    transition: BtnClicked || isHovering === false ? "0s" : "1.3s",
+  };
+  ////////////////////////////////
+
+  // при переходе из корзины на главную, кнопка зеленая и написано "в корзине"
+  React.useEffect(() => {
+    if (
+      props.cardArr.find((el) => {
+        return el.itemName === props.item.itemName;
+      })
+    ) {
+      setBtnClicked(true);
     }
-  }, [isHovering]);
+  }, [props.cardArr]);
 
   const addToCard = () => {
     setBtnClicked(true);
@@ -52,7 +65,7 @@ let Item = (props) => {
         return [...prev, props.item];
       });
     }
-    console.log(props.cardArr, props.cardCount);
+    // console.log(props.cardArr, props.cardCount);
   };
 
   return (
@@ -60,7 +73,7 @@ let Item = (props) => {
       style={window.innerWidth <= 690 ? { height: 590 } : null}
       className={styles.item}
       onMouseOver={() => handleMouseOver()}
-      onMouseOut={() => handleMouseOver()} // заменить на handleMouseOver и при отводке курсора все останется на месте(handleMouseOut)
+      onMouseOut={() => handleMouseOut()}
     >
       <img
         style={imgStyle}
@@ -73,19 +86,17 @@ let Item = (props) => {
         {props.itemPrice}
       </span>
       {/* Button on width > 690 */}
-      {isMargin && window.innerWidth > 690 ? (
+      {window.innerWidth > 690 ? (
         <button
           onClick={addToCard}
-          style={
-            BtnClicked
-              ? { backgroundColor: "#00A82D" }
-              : { backgroundColor: "#296DC1" }
-          }
+          style={btnStyle}
           className={styles.addToCard_btn}
         >
           {BtnClicked ? "В корзине" : "добавить в корзину"}
         </button>
       ) : null}
+      {/* Button on width > 690 */}
+
       {/* Button on width <= 690 */}
       {window.innerWidth <= 690 ? (
         <button
