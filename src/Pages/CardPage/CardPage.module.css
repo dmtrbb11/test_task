@@ -2,9 +2,7 @@
   position: relative;
   box-sizing: border-box;
   padding: 0px;
-  /* max-width: 1200px; */
   min-height: 100vh;
-  /* margin: 0 auto 57px auto; */
 }
 .itemsCard_list {
   display: flex;
@@ -75,10 +73,10 @@
   margin-bottom: 30px;
 }
 .formInput_name:focus {
-  outline: none;
+  outline: 1px solid #4892ec;
 }
 
-.formInput_phone{
+.formInput_phone {
   box-sizing: border-box;
   width: 430px;
   padding: 20px 26px 20px 26px;
@@ -93,10 +91,10 @@
 }
 
 .formInput_phone:focus {
-  outline: none;
+  outline: 1px solid #4892ec;
 }
 
-.formInput_mail{
+.formInput_mail {
   box-sizing: border-box;
   width: 430px;
   padding: 20px 26px 20px 26px;
@@ -111,8 +109,43 @@
 }
 
 .formInput_mail:focus {
-  outline: none;
+  outline: 1px solid #4892ec;
+}
+
+.mailIncorrect {
+  /* margin-top: -30px; */
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 18px;
+  color: #e86880;
 }
 .form_btn {
   margin-bottom: 76px;
+  width: 430px;
+  height: 60px;
+  background: #296dc1;
+  border: none;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+
+@media (max-width: 690px) {
+  .itemsCard_list {
+  display: flex;
+  padding: 0 5px;
+}
+.total_price {
+
+ margin: 0 0 60px 0;
+ text-align: center;
+}
 }

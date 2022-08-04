@@ -37,6 +37,7 @@
   background: none;
   border: 1px solid #a8afbb;
   cursor: pointer;
+  outline: none;
 }
 
 .counter_minus::after {
@@ -62,13 +63,13 @@
   line-height: 21px;
 }
 
-
 .counter_plus {
   width: 42px;
   height: 39px;
   background: none;
   border: 1px solid #a8afbb;
   cursor: pointer;
+  outline: none;
 }
 
 .counter_plus::after {
@@ -98,4 +99,147 @@
   height: 13px;
   background: none;
   border: none;
+}
+
+@media (max-width: 1100px) {
+  .cardItem_img {
+    margin-right: -80px;
+  }
+}
+
+@media (max-width: 930px) {
+  .cardItem_img {
+    margin-right: -32px;
+  }
+}
+
+@media (max-width: 830px) {
+  .cardItem_img {
+    max-width: 100px;
+    height: 100px;
+  }
+  .cardItem_name {
+    max-width: 230px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 19px;
+    color: #000000;
+  }
+}
+
+@media (max-width: 830px) {
+  .cardItem_img {
+    margin-right: -10px;
+  }
+  .counter_minus {
+    width: 33px;
+    height: 33px;
+  }
+
+  .counter_minus::after {
+    left: 9px;
+  }
+  .counter_plus {
+    width: 33px;
+    height: 33px;
+  }
+
+  .counter_plus::after {
+    right: 8px;
+  }
+
+  .counter_plus::before {
+    right: 16px;
+  }
+  .counter_value {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+}
+
+@media (max-width: 690px) {
+  .cardItem {
+    max-height: 610px;
+    height: 605px;
+    width: 100%;
+    flex-direction: column;
+    justify-content: start;
+    margin: 0 auto 30px auto;
+  }
+  .cardItem_img {
+    max-width: 400px;
+    max-height: 400px;
+    width: 400px;
+    height: 400px;
+    margin-bottom: 15px;
+  }
+  .cardItem_name {
+    max-width: 270px;
+    font-size: 16px;
+    line-height: 21px;
+    text-align: center;
+  }
+
+  .cardItem_price {
+    text-align: center;
+    display: block;
+    margin: 15px 0;
+  }
+  /* /// */
+
+  .mobile_wraper{
+    max-width: 180px;
+  }
+  .counter {
+    margin-bottom: 15px;
+    padding-left: 6px;
+  }
+  .counter_minus {
+    width: 40px;
+    height: 38px;
+  }
+
+  .counter_minus::after {
+    left: 23px;
+  }
+  .counter_plus {
+    width: 40px;
+    height: 38px;
+  }
+
+  .counter_plus::after {
+    right: 16px;
+  }
+
+  .counter_plus::before {
+    right: 24px;
+  }
+  .counter_value {
+    padding-top: 7px;
+    padding-bottom: 8px;
+  }
+
+  .deleteItem_btn {
+    position: relative;
+    box-sizing: border-box;
+    padding-left: 28px;
+    margin: 0;
+    width: 171px;
+    height: 40px;
+    background-color: #296dc1;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 21px;
+    color: #ffffff;
+  }
+  .deleteItem_btn::before {
+    position: absolute;
+    content: "";
+    width: 14px;
+    height: 13px;
+    top: 14px;
+    left: 40px;
+    background-image: url(../../../public/img/closeBtn_mobile.png);
+  }
 }
