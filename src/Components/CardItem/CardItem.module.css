@@ -187,7 +187,7 @@
   }
   /* /// */
 
-  .mobile_wraper{
+  .mobile_wraper {
     max-width: 180px;
   }
   .counter {
@@ -241,5 +241,34 @@
     top: 14px;
     left: 40px;
     background-image: url(../../../public/img/closeBtn_mobile.png);
+  }
+}
+
+@media (max-width: 430px) {
+  .cardItem {
+    max-height: 520px;
+  }
+  .cardItem_img {
+    max-width: 300px;
+    max-height: 300px;
+    width: 400px;
+    height: 400px;
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 370px) {
+  .mobile_wraper{
+    padding-left: 10px;
+  }
+  .cardItem {
+    max-height: 410px;
+  }
+  .cardItem_img {
+    max-width: 200px;
+    max-height: 200px;
+    width: 400px;
+    height: 400px;
+    margin-bottom: 15px;
   }
 }

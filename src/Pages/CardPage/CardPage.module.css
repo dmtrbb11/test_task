@@ -137,15 +137,67 @@
   color: #ffffff;
 }
 
-
 @media (max-width: 690px) {
   .itemsCard_list {
-  display: flex;
-  padding: 0 5px;
+    display: flex;
+    padding: 0 5px;
+  }
+  .total_price {
+    margin: 0 0 60px 0;
+    text-align: center;
+  }
 }
-.total_price {
+@media (max-width: 480px) {
+  .form_h1 {
+    font-size: 22px;
+    line-height: 25px;
+  }
 
- margin: 0 0 60px 0;
- text-align: center;
+  .formInput_name {
+    width: 370px;
+  }
+  .formInput_phone {
+    width: 370px;
+  }
+  .formInput_mail {
+    width: 370px;
+  }
+  .form_btn {
+    width: 370px;
+  }
 }
+
+@media (max-width: 430px) {
+  .form_h1 {
+    font-size: 22px;
+    line-height: 25px;
+  }
+
+  .formInput_name {
+    width: 310px;
+  }
+  .formInput_phone {
+    width: 310px;
+  }
+  .formInput_mail {
+    width: 310px;
+  }
+  .form_btn {
+    width: 310px;
+  }
+}
+
+@media (max-width: 370px) {
+  .formInput_name {
+    width: 280px;
+  }
+  .formInput_phone {
+    width: 280px;
+  }
+  .formInput_mail {
+    width: 280px;
+  }
+  .form_btn {
+    width: 280px;
+  }
 }
