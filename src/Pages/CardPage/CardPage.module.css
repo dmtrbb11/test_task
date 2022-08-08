@@ -1,3 +1,59 @@
+.CardPageWrapper {
+  position: relative;
+}
+.black_bg {
+  background: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.popup_wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 17px 17px 41px 33px;
+  background: #fff;
+  box-sizing: border-box;
+  height: 230px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -115px;
+  margin-left: -255px;
+  box-sizing: border-box;
+  width: 511px;
+  z-index: 12;
+}
+.popup_btn {
+  align-self: end;
+  text-align: right;
+  width: 16px;
+  height: 16px;
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+}
+.popup_name {
+  margin-top: 11px;
+  margin-bottom: 20px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 31px;
+  text-align: center;
+  color: #000000;
+}
+
+.popup_phone {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 21px;
+  color: #000000;
+}
 .container {
   position: relative;
   box-sizing: border-box;
@@ -32,13 +88,14 @@
 .form::after {
   content: "";
   position: absolute;
-  max-width: 1200px;
+  max-width: calc(100% - 70px);
+  width: 1200px;
   height: 1px;
   background-color: #a8afbb;
   bottom: -70px;
   left: 0;
   right: 0;
-  margin-left: 90px;
+  margin: 0 auto;
   display: inline-block;
 }
 
@@ -114,6 +171,9 @@
 
 .mailIncorrect {
   /* margin-top: -30px; */
+  position: relative;
+  left: -135px;
+  bottom: 29px;
   font-family: "Open Sans", sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -148,6 +208,10 @@
   }
 }
 @media (max-width: 480px) {
+  .mailIncorrect {
+    left: -105px;
+  }
+
   .form_h1 {
     font-size: 22px;
     line-height: 25px;
@@ -168,6 +232,9 @@
 }
 
 @media (max-width: 430px) {
+  .mailIncorrect {
+    left: -75px;
+  }
   .form_h1 {
     font-size: 22px;
     line-height: 25px;
@@ -188,6 +255,9 @@
 }
 
 @media (max-width: 370px) {
+  .mailIncorrect {
+    left: -60px;
+  }
   .formInput_name {
     width: 280px;
   }

@@ -2,15 +2,12 @@ import styles from "./CardPage.module.css";
 import CardItem from "../../Components/CardItem/CardItem";
 import React from "react";
 import InputMask from "react-input-mask";
+import validator from "validator";
 
 let CardPage = (props) => {
-  const [makeOrderClicked, setmakeOrderClicked] = React.useState(false);
-
   const [nameInput, setNameInput] = React.useState("");
   const [phoneInput, setPhoneInput] = React.useState("");
   const [mailInput, setMailInput] = React.useState("");
-  const [nameCorrect, setNameCorrect] = React.useState(true);
-  const [phoneCorrect, setPhoneCorrect] = React.useState(true);
   const [mailCorrect, setmailCorrect] = React.useState(true);
 
   // сумма заказа
@@ -20,104 +17,87 @@ let CardPage = (props) => {
   }
   //
 
-  const makeOrder = () => {};
+  const makeOrder = () => {
+    if (makeOrderBtnStyle.opacity === "100%") {
+      console.log("u can click");
+    }
+  };
 
   // INPUT STYLES ////////////////////////
 
-  // const inputMailStyle = {
-  //   outlineColor: mailCorrect ? "#4892EC" : "#E86880",
-  //   outlineStyle: "solid",
-  //   outlineWidth: 1,
-  // };
+  const inputMailStyle = {
+    outlineColor: mailCorrect ? null : "#E86880",
+    outlineStyle: "solid",
+    outlineWidth: 1,
+  };
 
-  // const inputEmptyStyle = {
-  //   outlineColor: "#E86880",
-  //   outlineStyle: "solid",
-  //   outlineWidth: 1,
-  // };
-  // const makeOrderBtnStyle = {
-  //   opacity:
-  //     nameInput !== "" && phoneInput !== "" && mailInput !== ""
-  //       ? "100%"
-  //       : "50%",
-  //   cursor:
-  //     nameInput !== "" && phoneInput !== "" && mailInput !== ""
-  //       ? "pointer"
-  //       : "default",
-  // };
+  const makeOrderBtnStyle = {
+    opacity:
+      nameInput !== "" &&
+      phoneInput !== "" &&
+      mailInput !== "" &&
+      mailCorrect === true &&
+      phoneInput[3] > 0 &&
+      phoneInput[4] > 0 &&
+      phoneInput[5] > 0 &&
+      phoneInput[8] > 0 &&
+      phoneInput[9] > 0 &&
+      phoneInput[10] > 0 &&
+      phoneInput[12] > 0 &&
+      phoneInput[13] > 0 &&
+      phoneInput[15] > 0 &&
+      phoneInput[16] > 0
+        ? "100%"
+        : "50%",
+    cursor:
+      nameInput !== "" &&
+      phoneInput !== "" &&
+      mailInput !== "" &&
+      mailCorrect === true &&
+      phoneInput[3] > 0 &&
+      phoneInput[4] > 0 &&
+      phoneInput[5] > 0 &&
+      phoneInput[8] > 0 &&
+      phoneInput[9] > 0 &&
+      phoneInput[10] > 0 &&
+      phoneInput[12] > 0 &&
+      phoneInput[13] > 0 &&
+      phoneInput[15] > 0 &&
+      phoneInput[16] > 0
+        ? "pointer"
+        : "default",
+  };
 
   ////////////////////////////////////////
 
-  // MAIL INPUT ////////////////////////
-  function isValidEmail(email) {
-    return /\S+@\S+\.\S+/.test(email);
-  }
-
+  // MAIL CHECK ////////////////////////
   const mailCorrectCheck = (event) => {
     setMailInput(event.target.value);
-    if (!isValidEmail(event.target.value)) {
-      setmailCorrect(false);
-    } else {
+    if (validator.isEmail(event.target.value)) {
       setmailCorrect(true);
+    } else {
+      setmailCorrect(false);
     }
   };
   /////////////////////////////////////////
 
-  // NAME INPUT /////////////////////////
-  const nameInputComponent = function () {
-    if (nameCorrect === true) {
-      return (
-        <input
-          value={nameInput}
-          onChange={(e) => setNameInput(e.target.value)}
-          className={styles.formInput_name}
-          placeholder={"Ваше имя"}
-        />
-      );
-    } else {
-      return (
-        <input
-          value={nameInput}
-          // style={inputEmptyStyle}
-          onChange={(e) => setNameInput(e.target.value)}
-          className={styles.formInput_name}
-          placeholder={"Ваше имя"}
-        />
-      );
-    }
-  };
-  ///////////////////////////////////////////
-  // TELEPHONE INPUT /////////////////////////
-  const telephoneInputComponent = function () {
-    if (phoneCorrect === true) {
-      return (
-        <InputMask
-          value={phoneInput}
-          onChange={(e) => setPhoneInput(e.target.value)}
-          className={styles.formInput_phone}
-          placeholder="+7(___) ___ - __ - __"
-          mask="+7(999) 999-99-99"
-          maskChar=" "
-        />
-      );
-    } else {
-      return (
-        <InputMask
-          value={phoneInput}
-          // style={inputEmptyStyle}
-          onChange={(e) => setPhoneInput(e.target.value)}
-          className={styles.formInput_phone}
-          placeholder="+7(___) ___ - __ - __"
-          mask="+7(999) 999-99-99"
-          maskChar=" "
-        />
-      );
-    }
-  };
-  ///////////////////////////////////////////
-
   return (
-    <div>
+    <div className={styles.CardPageWrapper}>
+      <div className={styles.black_bg}>
+        <div className={styles.popup_wrapper}>
+          <button
+            style={{ backgroundImage: `url("/img/popup_deleteBtn.png")` }}
+            className={styles.popup_btn}
+          ></button>
+          <div className={styles.popup_name}>
+            Спасибо Татьяна, ваш заказ №165796 оформлен.
+          </div>
+          <div className={styles.popup_phone}>
+            В ближайшее время мы свяжемся с вами по телефону +7 (999) 999 - 99 -
+            99 для его подтверждения.
+          </div>
+        </div>
+      </div>
       <div className="container">
         <h1 className="items_h1">Корзина</h1>
         <section className={styles.itemsCard_list}>
@@ -142,21 +122,36 @@ let CardPage = (props) => {
       <section className={styles.form}>
         <div className={styles.form_wrapper}>
           <span className={styles.form_h1}>Пожалуйста, представьтесь</span>
-          {nameInputComponent()}
-          {telephoneInputComponent()}
+
+          <input
+            value={nameInput}
+            onChange={(e) => setNameInput(e.target.value)}
+            className={styles.formInput_name}
+            placeholder={"Ваше имя"}
+          />
+          <InputMask
+            value={phoneInput}
+            onChange={(e) => setPhoneInput(e.target.value)}
+            className={styles.formInput_phone}
+            placeholder="+7(___) ___ - __ - __"
+            mask="+7(999) 999-99-99"
+            maskChar=" "
+          />
           <input
             value={mailInput}
             onChange={mailCorrectCheck}
-            // style={
-            //   mailInput !== "" && mailCorrect === false ? inputMailStyle : null
-            // }
+            style={
+              mailInput !== "" && mailCorrect === false ? inputMailStyle : null
+            }
             className={styles.formInput_mail}
             placeholder={"Email"}
           />
-
+          {mailInput !== "" && mailCorrect === false ? (
+            <p className={styles.mailIncorrect}>Поле заполнено неверно </p>
+          ) : null}
           <button
             onClick={() => makeOrder()}
-            // style={makeOrderBtnStyle}
+            style={makeOrderBtnStyle}
             className={styles.form_btn}
           >
             оформить заказ
