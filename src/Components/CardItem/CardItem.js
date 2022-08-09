@@ -20,7 +20,6 @@ let CardItem = (props) => {
       })
     );
     props.setCardCount(props.cardCount - 1);
-    console.log(props.cardArr);
   };
   return (
     <div>

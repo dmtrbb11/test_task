@@ -14,7 +14,7 @@
 .popup_wrapper {
   display: flex;
   flex-direction: column;
-  padding: 17px 17px 41px 33px;
+  padding: 17px 18px 41px 33px;
   background: #fff;
   box-sizing: border-box;
   height: 230px;
@@ -27,9 +27,10 @@
   width: 511px;
   z-index: 12;
 }
-.popup_btn {
+.btn_right {
   align-self: end;
-  text-align: right;
+}
+.popup_btn {
   width: 16px;
   height: 16px;
   border: none;
@@ -49,10 +50,14 @@
 }
 
 .popup_phone {
+  min-width: 445px;
   font-weight: 500;
   font-size: 16px;
   line-height: 21px;
   color: #000000;
+}
+.popup_fatWeight {
+  font-weight: 700;
 }
 .container {
   position: relative;
