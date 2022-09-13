@@ -14,6 +14,7 @@ let CardPage = (props) => {
   const [randomNum, setRandomNum] = React.useState(0);
 
   // сумма заказа
+  console.log(props.cardArr);
   let sum = 0;
   for (let i = 0; i < props.cardArr.length; i++) {
     sum = sum + parseInt(props.cardArr[i].itemPrice.replace(/[^0-9]/g, ""));

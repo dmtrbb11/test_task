@@ -23,7 +23,6 @@
   left: 50%;
   margin-top: -115px;
   margin-left: -255px;
-  box-sizing: border-box;
   width: 511px;
   z-index: 12;
 }
@@ -212,6 +211,16 @@
     text-align: center;
   }
 }
+
+@media (max-width: 560px) {
+  .popup_wrapper {
+    width: 420px;
+    margin-left: -210px;
+  }
+  .popup_phone {
+    min-width: 320px;
+  }
+}
 @media (max-width: 480px) {
   .mailIncorrect {
     left: -105px;
@@ -233,6 +242,15 @@
   }
   .form_btn {
     width: 370px;
+  }
+  .popup_wrapper {
+    padding: 17px 25px 41px 33px;
+    width: 360px;
+    height: 270px;
+    margin-left: -180px;
+  }
+  .popup_phone {
+    min-width: 320px;
   }
 }
 
@@ -257,6 +275,16 @@
   .form_btn {
     width: 310px;
   }
+
+  .popup_wrapper {
+    padding: 17px 25px 41px 33px;
+    width: 320px;
+    height: 256px;
+    margin-left: -160px;
+  }
+  .popup_phone {
+    min-width: 260px;
+  }
 }
 
 @media (max-width: 370px) {
@@ -274,5 +302,15 @@
   }
   .form_btn {
     width: 280px;
+  }
+  .popup_wrapper {
+    padding: 17px 25px 41px 33px;
+    width: 280px;
+    height: 280px;
+    margin-left: -140px;
+    margin-top: -155px;
+  }
+  .popup_phone {
+    min-width: 200px;
   }
 }
